@@ -2,7 +2,7 @@
 @plugin "daisyui" {
   themes:
     caramellatte --default,
-    coffee --prefersdark;
+    halloween --prefersdark;
 }
 
-@custom-variant dark (&:where([data-theme=coffee], [data-theme=coffee] *));
+@custom-variant dark (&:where([data-theme=halloween], [data-theme=halloween] *));
