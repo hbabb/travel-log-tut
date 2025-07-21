@@ -1,18 +1,3 @@
-<!-- <script lang="ts" setup>
-const colorMode = useColorMode();
-
-const isDark = computed({
-  get() {
-    return colorMode.value === "dark";
-  },
-  set(value) {
-    colorMode.preference = value ? "dark" : "light";
-  },
-});
-</script>
-v-model="isDark"
--->
-
 <template>
   <label class="swap swap-rotate mx-4">
     <!-- this hidden checkbox controls the state -->
