@@ -56,10 +56,12 @@
     "caramellatte",
     "daisyui",
     "iconify",
+    "libsql",
     "Nuxt",
     "nuxtjs",
     "oklch",
     "prefersdark",
-    "tabler"
+    "tabler",
+    "TURSO"
   ]
 }
