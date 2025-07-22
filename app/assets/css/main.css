@@ -3,5 +3,5 @@
   /* When changing themes, remember to update the theme-toggle for the dark mode !This is a BREAKING change */
   themes:
     corporate --default,
-    business --prefersdark;
+    business;
 }
