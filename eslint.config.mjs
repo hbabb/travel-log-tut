@@ -20,7 +20,7 @@ export default withNuxt(
       arrowParens: "always",
       linebreaks: "unix",
     },
-    ignores: [".pnpm-store/**", "node_modules/**"],
+    ignores: [".pnpm-store/**", "node_modules/**", "**/migrations/*"],
   }, {
     rules: {
       "ts/no-redeclare": "off",
