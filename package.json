@@ -5,7 +5,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "concurrently \"pnpm run dev:db\" \"nuxt dev\"",
-    "dev:db": "turso dev --db-file ./database/local.db",
+    "dev:db": "turso dev --db-file ./local.db",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",

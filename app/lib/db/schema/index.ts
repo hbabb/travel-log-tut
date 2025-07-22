@@ -1,4 +1,3 @@
 export * from "./location";
 export * from "./location-log";
-
-// TODO: Complete setting up db tables for Issue #14
+export * from "./location-log-image";
