@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui" {
   themes:
-    autumn --default,
-    night; /* When changing themes, remember to update the theme-toggle for the dark mode !This is a BREAKING change */
+    corporate --default,
+    business; /* When changing themes, remember to update the theme-toggle for the dark mode !This is a BREAKING change */
 }
