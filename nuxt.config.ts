@@ -1,4 +1,5 @@
 import tailwindcss from "@tailwindcss/vite";
+import { fileURLToPath } from "node:url";
 
 import "./app/lib/env";
 
@@ -12,6 +13,8 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxtjs/color-mode",
     "@pinia/nuxt",
+    "@vee-validate/nuxt",
+    "nuxt-csurf",
   ],
 
   eslint: {
@@ -24,6 +27,14 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
+    resolve: {
+      alias: {
+        "@vee-validate/zod/dist/vee-validate-zod.mjs":
+          fileURLToPath(new URL("./vee-validate-zod-fix.mjs", import.meta.url)),
+        "@vee-validate/zod/dist/vee-validate-zod.js":
+          fileURLToPath(new URL("./vee-validate-zod-fix.mjs", import.meta.url)),
+      },
+    },
   },
 
   colorMode: {
