@@ -1,6 +1,9 @@
 <script setup lang="ts">
-const { data, status } = await useFetch("/api/locations", {
-  lazy: true,
+const locationsStore = useLocationStore();
+const { locations, status } = storeToRefs(locationsStore);
+
+onMounted(() => {
+  locationsStore.refresh();
 });
 </script>
 
@@ -16,9 +19,9 @@ const { data, status } = await useFetch("/api/locations", {
     </div>
 
     <!-- Location Cards show only when there are locations in the database for the user -->
-    <div v-else-if="data && data.length > 0" class="flex flex-wrap mt-4 gap-6">
+    <div v-else-if="locations && locations.length > 0" class="flex flex-wrap mt-4 gap-6">
       <div
-        v-for="location in data"
+        v-for="location in locations"
         :key="location.id"
         class="card w-96 bg-base-200 card-lg shadow-xl rounded-xl"
       >
