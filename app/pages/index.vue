@@ -3,7 +3,7 @@ const authStore = useAuthStore();
 </script>
 
 <template>
-  <section class="hero bg-base-300 container mx-auto mt-4">
+  <section class="hero bg-base-300 container mx-auto mt-4 rounded-2xl shadow-xl">
     <article class="hero-content text-center min-h-96">
       <div class="max-w-md">
         <h1 class="text-5xl font-bold">
@@ -16,7 +16,7 @@ const authStore = useAuthStore();
         <NuxtLink
           v-else
           to="/dashboard"
-          class="btn btn-primary"
+          class="btn btn-lg btn-primary rounded-xl"
         >
           Start Logging
         </NuxtLink>

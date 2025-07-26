@@ -7,7 +7,7 @@ const authStore = useAuthStore();
     <div
       tabindex="0"
       role="button"
-      class="btn m-1"
+      class="btn m-1 rounded-xl"
     >
       <div v-if="authStore.user.image" class="avatar">
         <div class="w-8 rounded-full">
@@ -28,7 +28,7 @@ const authStore = useAuthStore();
   <button
     v-else
     :disabled="authStore.loading"
-    class="btn bg-black text-white border-black"
+    class="btn bg-black text-white border-black rounded-xl"
     @click="authStore.signIn"
   >
     <span v-if="authStore.loading" class="loading loading-ring loading-md text-warning" />
