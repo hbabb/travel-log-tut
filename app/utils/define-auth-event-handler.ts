@@ -1,6 +1,16 @@
-import type { EventHandler } from "h3";
+import type { H3Event, H3EventContext } from "h3";
 
-export default function defineAuthEventHandler(handler: EventHandler) {
+import type { UserWithId } from "~/lib/auth";
+
+type AuthEvent = H3Event & {
+  context: H3EventContext & {
+    user: UserWithId;
+  };
+};
+
+export default function defineAuthEventHandler<T>(
+  handler: (event: AuthEvent) => T,
+) {
   return defineEventHandler(async (event) => {
     if (!event.context.user) {
       return sendError(event, createError({
@@ -9,6 +19,6 @@ export default function defineAuthEventHandler(handler: EventHandler) {
       }));
     }
 
-    return handler;
+    return handler(event as AuthEvent);
   });
 };
