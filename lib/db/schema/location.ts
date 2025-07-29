@@ -24,9 +24,9 @@ export const location = sqliteTable("location", {
 export const InsertLocation = createInsertSchema(location, {
   name: field => field.min(1).max(100),
   description: field => field.max(1000),
-  lat: z.coerce.number().min(-90).max(90),
-  long: z.coerce.number().min(-180).max(180),
-}).omit({
+  lat: z.coerce.number().min(-90).max(90) as any,
+  long: z.coerce.number().min(-180).max(180) as any,
+} as const).omit({
   id: true,
   slug: true,
   userId: true,

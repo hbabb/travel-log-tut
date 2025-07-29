@@ -8,7 +8,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="p-4 flex flex-col items-center">
+  <div class="p-4 flex flex-col">
     <h2 class="text-2xl font-bold">
       Locations
     </h2>
@@ -19,14 +19,14 @@ onMounted(() => {
     </div>
 
     <!-- Location Cards show only when there are locations in the database for the user -->
-    <div v-else-if="locations && locations.length > 0" class="flex flex-wrap mt-4 gap-6">
+    <div v-else-if="locations && locations.length > 0" class="flex flex-nowrap mt-4 gap-6 overflow-auto px-2">
       <div
         v-for="location in locations"
         :key="location.id"
-        class="card w-96 bg-base-200 card-lg shadow-xl rounded-xl"
+        class="card card-compact bg-base-200 h-32 w-56 shadow-xl rounded-xl shrink-0"
       >
         <div class="card-body flex flex-col">
-          <h3 class="card-title justify-center">
+          <h3 class="card-title">
             {{ location.name }}
           </h3>
           <p class="line-clamp-3">
