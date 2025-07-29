@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@vee-validate/nuxt",
     "nuxt-csurf",
+    "nuxt-maplibre",
   ],
 
   veeValidate: {
@@ -30,6 +31,11 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
+    optimizeDeps: {
+      include: [
+        "maplibre-gl",
+      ],
+    },
   },
 
   colorMode: {
