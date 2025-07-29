@@ -8,7 +8,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="p-4 flex flex-col items-center min-h-dvh">
+  <div class="p-4 flex flex-col items-center">
     <h2 class="text-2xl font-bold">
       Locations
     </h2>
