@@ -1,7 +1,8 @@
 {
-  "name": "nuxt-app",
+  "name": "travel-log-tut",
   "type": "module",
   "private": true,
+  "author": "Heath Babb",
   "license": "MIT",
   "scripts": {
     "build": "nuxt build",
