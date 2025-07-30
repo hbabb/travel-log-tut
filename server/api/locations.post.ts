@@ -7,7 +7,16 @@ import { InsertLocation } from "~/lib/db/schema";
 import defineAuthEventHandler from "~/utils/define-auth-event-handler";
 
 export default defineAuthEventHandler(async (event) => {
-  const result = await readValidatedBody(event, InsertLocation.safeParse);
+  /**
+   * BUG FIX: readValidatedBody(even, InsertLocation.safeParse) works in development but fails in production with "keyValidator _parse is not a function". This appears to be related to how h3/Nuxt handles method binding during production compilation.
+   * ROOT CAUSE: Unknown - TODO: investigate Nuxt's readValidatedBody implementation
+   *
+   * WORKAROUND: Parse body manually instead of passing bound method to readValidatedBody
+   * const body = away readValidatedBody(event);
+   * const result = InsertLocation.safeParse(body);
+   * OR a one line version as shown below
+   */
+  const result = await readValidatedBody(event, body => InsertLocation.safeParse(body));
 
   if (!result.success) {
     const statusMessage = result
