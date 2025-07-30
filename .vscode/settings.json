@@ -71,6 +71,7 @@
     "libsql",
     "lightbox",
     "maplibre",
+    "maplibregl",
     "maxzoom",
     "minzoom",
     "neighbourhood",
