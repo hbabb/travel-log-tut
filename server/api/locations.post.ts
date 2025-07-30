@@ -8,13 +8,9 @@ import defineAuthEventHandler from "~/utils/define-auth-event-handler";
 
 export default defineAuthEventHandler(async (event) => {
   /**
-   * BUG FIX: readValidatedBody(even, InsertLocation.safeParse) works in development but fails in production with "keyValidator _parse is not a function". This appears to be related to how h3/Nuxt handles method binding during production compilation.
-   * ROOT CAUSE: Unknown - TODO: investigate Nuxt's readValidatedBody implementation
-   * WORKAROUND: Parse body manually instead of passing bound method to readValidatedBody
-   * const body = away readValidatedBody(event);
-   * const result = InsertLocation.safeParse(body);
-   * OR a one line version as shown below
-  // const result = await readValidatedBody(event, InsertLocation.safeParse);
+   * ! BUG: readValidatedBody(even, InsertLocation.safeParse) works in development but fails in production with "keyValidator _parse is not a function". This appears to be related to how h3/Nuxt handles method binding during production compilation.
+   * ROOT CAUSE: Unknown
+   * ? WORKAROUND: Parse body manually instead of passing bound method to readValidatedBody
    */
   // TODO: Investigate Nuxt's readValidatedBody with Zod integration
   const body = await readBody(event);
@@ -60,8 +56,8 @@ export default defineAuthEventHandler(async (event) => {
     const error = e as LibsqlError;
     const cause = error?.cause as LibsqlError;
 
-    // console.log("=== RAW ERROR ===");
-    // consol.dir(error, {depth: null});
+    console.log("=== RAW ERROR ===");
+    console.dir(error, { depth: null });
 
     if (cause?.code === "SQLITE_CONSTRAINT" && cause?.message?.includes("UNIQUE constraint failed: location.name")) {
       return sendError(event, createError({
